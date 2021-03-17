@@ -5,27 +5,18 @@ function init() {
     var suggestView1 = new ymaps.SuggestView('input_address');
 }
 
-function getAddress() {
+function getGeoCode() {
     var address = document.getElementById('input_address').value;
     var myGeocoder = ymaps.geocode(address, {results: 1});
+
     myGeocoder.then(
         function (res) {
-            console.log('Все данные геообъекта: ', res.geoObjects.get(0).geometry.getCoordinates());
-        },
-        function (err) {
-            console.log('Error');
+            var request = new XMLHttpRequest();
+            var geo_code = res.geoObjects.get(0).geometry.getCoordinates();
+            var params = `latitude=${geo_code[0]}&longitude=${geo_code[1]}`;
+
+            request.open("GET", "http://localhost:8080/hotels?" + params);
+            request.send();
         }
     );
 }
-
-function reqReadyStateChange() {
-    if (request.readyState == 4 && request.status == 200)
-        document.getElementById("output").innerHTML=request.responseText;
-}
-
-
-var body = "name=" + user.name + "&age="+user.age;
-request.open("POST", "http://localhost:8080/postdata.php");
-request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-request.onreadystatechange = reqReadyStateChange;
-request.send(body);
