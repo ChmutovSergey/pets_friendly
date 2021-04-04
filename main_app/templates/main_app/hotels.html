@@ -1,0 +1,36 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Hotels{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_app/hotels.css' %}">
+
+{% block script %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>Hotels.html</h1>
+</div>
+<div id="map"></div>
+
+<script language="JavaScript">
+var myMap;
+
+ymaps.ready(init);
+
+function init () {
+    myMap = new ymaps.Map('map', {
+        center: [55.76, 37.64], // Москва
+        zoom: 10
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
+
+    document.getElementById('destroyButton').onclick = function () {
+        myMap.destroy();
+    };
+}
+</script>
+{% endblock %}
