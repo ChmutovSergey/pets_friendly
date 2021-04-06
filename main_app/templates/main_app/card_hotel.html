@@ -14,5 +14,21 @@
 <p>{{ description }}</p>
 <h3>Адрес</h3>
 <p>{{ address }}</p>
+<table border="1">
+    <tr>
+        <td><b>Тип номера</b></td>
+        <td><b>Площадь</b></td>
+        <td><b>Вмещает</b></td>
+        <td><b>Цена</b></td>
+    </tr>
+    {% for room in rooms %}
+        <tr>
+            <td>{{ room.title }}</td>
+            <td>{{ room.area }} m2</td>
+            <td>{{ room.seats }}</td>
+            <td>{{ room.rate }} руб.</td>
+        </tr>
+    {% endfor %}
+</table>
 <div id="map"></div>
 {% endblock %}
