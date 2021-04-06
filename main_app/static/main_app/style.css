@@ -4,3 +4,25 @@ html, body {
     margin: 0;
     font-family: Arial;
 }
+
+.header {
+    padding: 5px;
+}
+
+#input_address {
+    width: 300px;
+    margin: 5px;
+}
+
+#content {
+    display:inline-block;
+    width: 48%;
+    float: left;
+}
+
+#map {
+    display:inline-block;
+    width: 50%;
+    height: 80%;
+    margin: 5px;
+}
