@@ -1,0 +1,18 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block script %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'main_app/js/card_hotel.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<h3>Описание</h3>
+<p>{{ description }}</p>
+<h3>Адрес</h3>
+<p>{{ address }}</p>
+<div id="map"></div>
+{% endblock %}

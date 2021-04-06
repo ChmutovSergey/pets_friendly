@@ -9,8 +9,8 @@ function init () {
     myMap = new ymaps.Map('map', {
         // При инициализации карты обязательно нужно указать
         // её центр и коэффициент масштабирования.
-        center: [55.76, 37.64], // Москва
-        zoom: 10
+        center: [55.784415, 37.737291], // Москва
+        zoom: 12
     }, {
         searchControlProvider: 'yandex#search'
     });
@@ -18,12 +18,6 @@ function init () {
     myMap.geoObjects
         .add(new ymaps.Placemark([55.784415, 37.737291], {
             balloonContent: '<strong>BookingCat м. Партизанская</strong>'
-        }, {
-            preset: 'islands#icon',
-            iconColor: 'red'
-        }))
-        .add(new ymaps.Placemark([55.922621, 37.427830], {
-            balloonContent: '<strong>Отель "Планета Кошек"</strong>'
         }, {
             preset: 'islands#icon',
             iconColor: 'red'
