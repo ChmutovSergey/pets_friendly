@@ -4,7 +4,6 @@ var myMap;
 ymaps.ready(init);
 
 function init () {
-    console.log(hotels);
     // Создание экземпляра карты и его привязка к контейнеру с
     // заданным id ("map").
     myMap = new ymaps.Map('map', {
