@@ -25,6 +25,7 @@ class Room(models.Model):
     description = models.TextField(verbose_name='Описание')
     area = models.FloatField(null=False, verbose_name='Площадь')
     hotel = models.ForeignKey('main_app.Hotel', on_delete=models.PROTECT, verbose_name='Отель')
+    room_detail = models.ForeignKey('main_app.RoomDetail', on_delete=models.PROTECT, verbose_name='Номер')
 
     def __str__(self):
         return self.title
@@ -34,7 +35,6 @@ class RoomDetail(models.Model):
     title = models.CharField(max_length=200, null=False, verbose_name='Наименование')
     seats = models.IntegerField(null=False, verbose_name='Количество мест')
     rate = models.FloatField(null=False, verbose_name='Цена')
-    room = models.ForeignKey('main_app.Room', on_delete=models.PROTECT, verbose_name='Номер')
 
     def __str__(self):
         return self.title
