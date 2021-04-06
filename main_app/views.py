@@ -1,7 +1,7 @@
 from os import environ
 from django.http import HttpResponse
 from django.shortcuts import render
-from main_app.models import Hotel
+from main_app.models import Hotel, Room
 
 YANDEX_MAP_API_KEY = environ.get('MAP_API_KEY')
 
@@ -32,16 +32,28 @@ def hotels_page(request):
 def card_hotel_page(request, hotel_id):
     data = {'yandex_map_api_key': YANDEX_MAP_API_KEY}
     try:
-        data_hotel = Hotel.objects.select_related().get(id=hotel_id)
+        room_data = Room.objects.select_related().filter(hotel_id=hotel_id)
+        hotel_data = Hotel.objects.select_related().get(id=hotel_id)
     except Exception:
         return HttpResponse(status=404)
 
+    rooms = [
+        {
+            'title': room.title,
+            'description': room.description,
+            'area': room.area,
+            'seats': room.room_detail.seats,
+            'rate': room.room_detail.rate,
+        } for room in room_data]
+
     data.update({
-        'title': data_hotel.title,
-        'description': data_hotel.description,
-        'address': data_hotel.contact.address,
-        'latitude': float(data_hotel.contact.latitude),
-        'longitude': float(data_hotel.contact.longitude)
+        'title': hotel_data.title,
+        'description': hotel_data.description,
+        'address': hotel_data.contact.address,
+        'latitude': float(hotel_data.contact.latitude),
+        'longitude': float(hotel_data.contact.longitude),
+        'rooms': rooms,
+
     })
     print(data)
 

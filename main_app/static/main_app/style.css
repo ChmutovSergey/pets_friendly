@@ -22,6 +22,7 @@ html, body {
 
 #map {
     display:inline-block;
+    padding-top: 10px;
     width: 50%;
     height: 80%;
     margin: 5px;
