@@ -3,6 +3,10 @@
 
 {% block title %}Hotels{% endblock %}
 
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_app/css/hotels.css' %}">
+{% endblock %}
+
 {% block script %}
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
 <script type="text/javascript" src="{% static 'main_app/js/hotels.js' %}"></script>
