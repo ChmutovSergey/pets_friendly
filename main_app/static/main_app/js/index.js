@@ -11,12 +11,10 @@ function getGeoCode() {
 
     myGeocoder.then(
         function (res) {
-            var request = new XMLHttpRequest();
             var geo_code = res.geoObjects.get(0).geometry.getCoordinates();
             var params = `latitude=${geo_code[0]}&longitude=${geo_code[1]}`;
 
-            request.open("GET", "http://127.0.0.1:8000/hotels?" + params);
-            request.send();
+            document.location="/hotels?" + params;
         }
     );
 }
