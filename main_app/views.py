@@ -12,17 +12,19 @@ def index_page(request):
 
 def hotels_page(request):
     data = {'yandex_map_api_key': YANDEX_MAP_API_KEY}
-    # latitude = request.GET.get('latitude')
-    # longitude = request.GET.get('longitude')
+
+    # TODO: изменить на координаты города пользователя, когда сервис будет работать по Росссии
+    #  пока заданы координаты центра Москвы latitude=37.617635, longitude=55.755814
+    latitude = request.GET.get('latitude', 37.617635)
+    longitude = request.GET.get('longitude', 55.755814)
+    data['center_map'] = [latitude, longitude]
 
     data_hotels = Hotel.objects.select_related()
-
     if data_hotels:
         data['hotels'] = [
             {
                 'title': hotel.title,
-                'latitude': float(hotel.contact.latitude),
-                'longitude': float(hotel.contact.longitude)
+                'geo_point': [float(hotel.contact.latitude), float(hotel.contact.longitude)],
             } for hotel in data_hotels
         ]
 
