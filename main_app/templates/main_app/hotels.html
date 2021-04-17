@@ -1,0 +1,30 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+<!--TODO: реализовать динмический тайтл при выборе города-->
+{% block title %}Pets Friendly: Отели для питомцев в Москве{% endblock %}
+{% block description %}
+Более 100 отелей в Москве и Московской области. Гарантия лучшей цены! Без комиссий. Официальный сайт.
+{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_app/css/hotels.css' %}">
+{% endblock %}
+
+{% block script %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'main_app/js/hotels.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{{ hotels|json_script:"hotels-data" }}
+{{ center_map|json_script:"center_map" }}
+<h1>Hotels</h1>
+<div id="content">
+    <ul>
+        {% for hotel in hotels %}
+            <li>{{ hotel.title }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="map"></div>
+{% endblock %}

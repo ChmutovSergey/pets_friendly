@@ -1,0 +1,13 @@
+#content {
+    display:inline-block;
+    width: 48%;
+    float: left;
+}
+
+#map {
+    display:inline-block;
+    padding-top: 10px;
+    width: 50%;
+    height: 80%;
+    margin: 5px;
+}
