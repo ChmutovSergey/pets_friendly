@@ -1,7 +1,10 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
-
-{% block title %}Hotels{% endblock %}
+<!--TODO: реализовать динмический тайтл при выборе города-->
+{% block title %}Pets Friendly: Отели для питомцев в Москве{% endblock %}
+{% block description %}
+Более 100 отелей в Москве и Московской области. Гарантия лучшей цены! Без комиссий. Официальный сайт.
+{% endblock %}
 
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/hotels.css' %}">
@@ -13,11 +16,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Hotels.html</h1>
+{{ hotels|json_script:"hotels-data" }}
+{{ center_map|json_script:"center_map" }}
+<h1>Hotels</h1>
 <div id="content">
     <ul>
         {% for hotel in hotels %}
-        <li>{{ hotel.title }} {{ hotel.latitude }} {{ hotel.longitude }}</li>
+            <li>{{ hotel.title }}</li>
         {% endfor %}
     </ul>
 </div>
