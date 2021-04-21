@@ -5,8 +5,57 @@ html, body {
     font-family: Arial;
 }
 
-.header {
-    padding: 5px;
+#wrapper {
+	max-width: 960px;
+	margin: auto;
+}
+
+header {
+	padding: 20px 0;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    list-style-position: inside;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 10px;
+}
+
+header ul a {
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+header div {
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+}
+
+header div:nth-of-type(odd) {
+    float: left;
+    clear: right;
+}
+
+.top-menu li {
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0;
+    background-color: #3F51B5;
+    border-radius: 5px;
+}
+
+.top-menu a {
+    color: #fff;
 }
 
 ul.nav {
