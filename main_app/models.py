@@ -2,24 +2,25 @@ from django.db import models
 
 
 class Metro(models.Model):
-    station = models.CharField(max_length=100, null=False, verbose_name='Станция метро')
+    station = models.CharField(max_length=100, verbose_name='Станция метро')
 
     def __str__(self):
         return self.station
 
 
 class Hotel(models.Model):
-    title = models.CharField(max_length=200, null=False, verbose_name='Название отеля')
-    description = models.TextField(null=False, verbose_name='Описание отеля')
-    address = models.CharField(max_length=500, null=False, verbose_name='Адрес отеля')
-    phone = models.BigIntegerField(null=False, verbose_name='Номер телефона')
-    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=False, verbose_name='Долгота')
-    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=False, verbose_name='Широта')
-    opening_time = models.TimeField(null=True, verbose_name='Время открытия')
-    closing_time = models.TimeField(null=True, verbose_name='Время закрытия')
-    mass_transport_route = models.TextField(null=True, verbose_name='Как добраться на общественном транспорте')
-    person_car_route = models.TextField(null=True, verbose_name='Как добраться на личном автомобиле')
-    metro = models.ManyToManyField(Metro)
+    title = models.CharField(max_length=200, verbose_name='Название отеля')
+    description = models.TextField(verbose_name='Описание отеля')
+    short_description = models.TextField(max_length=500, blank=True, verbose_name='Короткое описание отеля')
+    address = models.CharField(max_length=500, verbose_name='Адрес отеля')
+    phone = models.BigIntegerField(verbose_name='Номер телефона')
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Долгота')
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, verbose_name='Широта')
+    opening_time = models.TimeField(verbose_name='Время открытия')
+    closing_time = models.TimeField(verbose_name='Время закрытия')
+    mass_transport_route = models.TextField(blank=True, verbose_name='Как добраться на общественном транспорте')
+    person_car_route = models.TextField(blank=True, verbose_name='Как добраться на личном автомобиле')
+    metro = models.ManyToManyField(Metro, blank=True)
 
     def __str__(self):
         return self.title

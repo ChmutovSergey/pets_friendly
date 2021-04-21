@@ -5,6 +5,10 @@ html, body {
     font-family: Arial;
 }
 
+h3 {
+    font-size: 24px;
+}
+
 #wrapper {
 	max-width: 960px;
 	margin: auto;
@@ -67,4 +71,8 @@ ul.nav li {
     display: inline;
     margin-right: 5px;
     padding: 3px;
+}
+
+.content {
+    padding-top: 50px;
 }
