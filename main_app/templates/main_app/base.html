@@ -11,7 +11,7 @@
         {% block script %}{% endblock %}
     </head>
     <body>
-        <div id="wrapper">
+        <div class="wrapper">
             <header>
                 <div class="logo">
                     <a href="/"><img src="{% static 'main_app/img/logo.jpg' %}" alt="Logo"></a>
@@ -26,6 +26,21 @@
                 {% block content %}{% endblock %}
             </div>
         </div>
-        <footer class="footer"></footer>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <ul class="footer-navigation-link-list">
+                            <li class="footer-navigation-link">
+                                <a href="/">Связаться с нами</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
