@@ -9,7 +9,7 @@ h3 {
     font-size: 24px;
 }
 
-#wrapper {
+.wrapper {
 	max-width: 960px;
 	margin: auto;
 }
@@ -75,4 +75,53 @@ ul.nav li {
 
 .content {
     padding-top: 50px;
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #0e1824;
+    color: #8d8d91;
+    font-size: 14px;
+}
+
+.footer a:link {
+    color: #8d8d91;
+}
+
+.footer a:visited {
+    color: #8d8d91;
+}
+
+.footer a:hover {
+    color: #e27715;
+}
+
+.footer .container .row {
+    padding: 0 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer .container .row .col-4 {
+    width: 24%;
+    display:inline-block;
+}
+
+.footer .container .row ul {
+    display: block;
+}
+
+.footer .container .row .footer-navigation-link-list {
+    list-style-type: none;
+}
+
+.footer .container .row .footer-navigation-link {
+    margin: 0 0 10px 0;
+}
+
+.footer .container .row .footer-navigation-link a {
+    text-decoration: none;
+    font-weight: 400;
 }

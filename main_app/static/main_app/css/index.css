@@ -5,6 +5,7 @@
 
 p.address {
     display: inline-block;
+    margin: 0;
 }
 
 input.text_address {
@@ -26,4 +27,8 @@ input.button_address {
     font-size: 18px;
     border-radius: 5px;
     width: 120px;
+}
+
+.footer {
+    position: absolute;
 }
