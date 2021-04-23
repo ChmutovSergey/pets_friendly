@@ -1,7 +1,7 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
 
-{% block title %}Pets Friendly | Лучшие отели для питомцев{% endblock %}
+{% block title %}Лучшие отели для питомцев{% endblock %}
 {% block description %}
 Отели для животных в Москве и области. Актуальная информация об услугах в Москве, удобный поиск
 гостиницы для животных — адреса на карте, отзывы с рейтингом и фотографиями.
@@ -18,7 +18,7 @@
 
 {% block content %}
 <div class="content">
-    <h3>Найдем лучший отель для Вашего питомца там, где Вам удобно!</h3>
+    <h1>Найдем лучший отель для Вашего питомца там, где Вам удобно!</h1>
     <form name="search-city" method="GET" class="set_address">
         {% csrf_token %}
         <p class="address"><input class="text_address" type="text" id="input_address" placeholder="Введите адрес" autofocus></p>

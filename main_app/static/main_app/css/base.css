@@ -5,7 +5,7 @@ html, body {
     font-family: Arial;
 }
 
-h3 {
+h1 {
     font-size: 24px;
 }
 
@@ -32,6 +32,7 @@ header ul li {
     font-weight: 600;
     font-size: 12px;
     padding: 10px;
+    cursor: pointer;
 }
 
 header ul a {
@@ -56,6 +57,10 @@ header div:nth-of-type(odd) {
     margin: 0;
     background-color: #3F51B5;
     border-radius: 5px;
+}
+
+.top-menu li:hover {
+    background-color: #e27715;
 }
 
 .top-menu a {
@@ -87,11 +92,11 @@ ul.nav li {
 }
 
 .footer a:link {
-    color: #8d8d91;
+    color: #c0c0c2;
 }
 
 .footer a:visited {
-    color: #8d8d91;
+    color: #737378;
 }
 
 .footer a:hover {

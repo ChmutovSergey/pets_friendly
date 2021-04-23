@@ -1,25 +1,8 @@
-import datetime
 from math import sqrt
-from os import environ
 
-from django.http import HttpResponse
 from django.shortcuts import render
 from main_app.models import Hotel
-
-YANDEX_MAP_API_KEY = environ.get('MAP_API_KEY')
-
-
-def format_phone_number(phone_number: int) -> str:
-    number = str(phone_number)
-
-    return '+7 ({}) {}-{}-{}'.format(number[1:4], number[4:7], number[7:9], number[9:])
-
-
-def get_work_time(opening_time: datetime.time, closing_time: datetime.time):
-    if opening_time == closing_time:
-        return 'Круглосуточно'
-
-    return f'c {opening_time.isoformat(timespec="minutes")} до {closing_time.isoformat(timespec="minutes")}'
+from .controller import YANDEX_MAP_API_KEY, format_phone_number, get_work_time
 
 
 def index_page(request):
@@ -60,20 +43,25 @@ def hotels_page(request):
     return render(request, 'main_app/hotels.html', context=data)
 
 
-def card_hotel_page(request, hotel_id):
-    data = {'yandex_map_api_key': YANDEX_MAP_API_KEY}
-    try:
-        hotel = Hotel.objects.select_related().get(id=hotel_id)
-    except Exception:
-        return HttpResponse(status=404)
+def help_page(request):
 
-    data.update({
-        'title': hotel.title,
-        'description': hotel.description,
-        'address': hotel.address,
-        'latitude': float(hotel.latitude),
-        'longitude': float(hotel.longitude),
+    return render(request, 'main_app/help.html')
 
-    })
 
-    return render(request, 'main_app/card_hotel.html', context=data)
+# def card_hotel_page(request, hotel_id):
+#     data = {'yandex_map_api_key': YANDEX_MAP_API_KEY}
+#     try:
+#         hotel = Hotel.objects.select_related().get(id=hotel_id)
+#     except Exception:
+#         return HttpResponse(status=404)
+#
+#     data.update({
+#         'title': hotel.title,
+#         'description': hotel.description,
+#         'address': hotel.address,
+#         'latitude': float(hotel.latitude),
+#         'longitude': float(hotel.longitude),
+#
+#     })
+#
+#     return render(request, 'main_app/card_hotel.html', context=data)

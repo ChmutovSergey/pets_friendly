@@ -1,0 +1,32 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Центр поддержки{% endblock %}
+
+{% block description %}
+В Центре поддержки пользователей Вы можете описать свою проблему, либо оставить отзыв о сервисе.
+И команда Pets Friendly обязательно Вам ответит!
+{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_app/css/help.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Центр поддержки</h1>
+<div class="inline">
+    <form action="#" method="post" name="contact">
+        <input class="txt" name="name" type="name" placeholder="Имя">
+        <input class="txt" name="phone" type="phone" placeholder="Номер телефона">
+        <input class="txt" name="email" type="email" placeholder="E-mail">
+        <textarea class="txt-area" name="msg" placeholder="Текст сообщения:"></textarea>
+        <input type="checkbox" id="agreement" onchange="document.getElementById('send').disabled = !this.checked;">
+        <label for="agreement">
+            <span>Подтверждаю согласие на отправку моих персональных данных.
+                <a target="new" href="#">Политика конфиденциальности</a>
+            </span>
+        </label>
+    </form>
+    <button class="send">Отправить</button>
+</div>
+{% endblock %}
