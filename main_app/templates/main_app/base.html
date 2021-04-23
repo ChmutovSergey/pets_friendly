@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}{% endblock %}</title>
+        <title>Pets Friendly &#124; {% block title %}{% endblock %}</title>
         <meta name="description" content="{% block description %}{% endblock %}" />
         <link rel="icon" href="https://pets-friendly.ru/favicon.svg" type="image/svg+xml">
         {% load static %}
@@ -17,6 +17,11 @@
                     <a href="/"><img src="{% static 'main_app/img/logo.jpg' %}" alt="Logo"></a>
                 </div>
             </header>
+            <div class="top-menu">
+                <ul>
+                    <li><a href="#">Добавить свой отель</a></li>
+                </ul>
+            </div>
             <div class="content">
                 {% block content %}{% endblock %}
             </div>
@@ -30,7 +35,7 @@
                     <div class="col-4">
                         <ul class="footer-navigation-link-list">
                             <li class="footer-navigation-link">
-                                <a href="#"></a>
+                                <a href="{% url 'help' %}">Связаться с нами</a>
                             </li>
                         </ul>
                     </div>
