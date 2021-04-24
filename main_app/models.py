@@ -1,8 +1,17 @@
 from django.db import models
 
 
+class MetroLine(models.Model):
+    metro_line = models.CharField(max_length=100, verbose_name='Линия метро')
+    img_url = models.TextField(verbose_name='Путь до иконки линии')
+
+    def __str__(self):
+        return 'Линии метро'
+
+
 class Metro(models.Model):
     station = models.CharField(max_length=100, verbose_name='Станция метро')
+    metro_line = models.ManyToManyField(MetroLine)
 
     def __str__(self):
         return self.station
