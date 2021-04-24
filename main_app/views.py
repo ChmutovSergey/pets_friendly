@@ -44,8 +44,11 @@ def hotels_page(request):
 
 
 def help_page(request):
-
     return render(request, 'main_app/help.html')
+
+
+def privacy_page(request):
+    return render(request, 'main_app/privacy.html')
 
 
 # def card_hotel_page(request, hotel_id):
