@@ -19,7 +19,7 @@
 {% block content %}
 <div class="content">
     <h3>Найдем лучший отель для Вашего питомца там, где Вам удобно!</h3>
-    <form name="select_city" method="GET" class="set_address">
+    <form name="search-city" method="GET" class="set_address">
         {% csrf_token %}
         <p class="address"><input class="text_address" type="text" id="input_address" placeholder="Введите адрес" autofocus></p>
         <p class="address"><input class="button_address" type="button" onclick="getGeoCode()" value="Найти"></p>

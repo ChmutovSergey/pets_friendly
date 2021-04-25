@@ -18,13 +18,17 @@
 {% block content %}
 {{ hotels|json_script:"hotels-data" }}
 {{ center_map|json_script:"center_map" }}
-<h1>Hotels</h1>
-<div id="content">
-    <ul>
-        {% for hotel in hotels %}
-            <li>{{ hotel.title }}</li>
-        {% endfor %}
-    </ul>
+<!--TODO: реализовать динмический тайтл при выборе города-->
+<h1>Гостиницы для животных в Москве</h1>
+<div class="map" id="map"></div>
+<div class="hotels-list">
+    {% for hotel in hotels %}
+        <div class="line"></div>
+        <h2>{{ hotel.title }}</h2>
+        <p class="address">{{ hotel.address }}</p>
+        <p class="work-time">Режим работы: {{ hotel.work_time }}</p>
+        <p class="phone">{{ hotel.phone }}</p>
+        <p class="description">{{ hotel.short_description }}</p>
+    {% endfor %}
 </div>
-<div id="map"></div>
 {% endblock %}
