@@ -32,6 +32,7 @@ def hotels_page(request):
                 'phone': format_phone_number(hotel.phone),
                 'work_time': get_work_time(hotel.opening_time, hotel.closing_time),
                 'geo_point': (float(hotel.latitude), float(hotel.longitude)),
+                'metro': [[item.station, item.metro_line.first().img_url] for item in hotel.metro.all()],
             } for hotel in hotels
         ]
         # сортируем объекты по расстоянию от центра карты

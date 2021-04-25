@@ -6,7 +6,7 @@ class MetroLine(models.Model):
     img_url = models.TextField(verbose_name='Путь до иконки линии')
 
     def __str__(self):
-        return 'Линии метро'
+        return self.metro_line
 
 
 class Metro(models.Model):
