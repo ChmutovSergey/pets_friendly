@@ -3,26 +3,22 @@
 
 {% block title %}Лучшие отели для питомцев{% endblock %}
 {% block description %}
-Отели для животных в Москве и области. Актуальная информация об услугах в Москве, удобный поиск
-гостиницы для животных — адреса на карте, отзывы с рейтингом и фотографиями.
+Отели для животных в Москве и области. Актуальная информация об услугах в Москве, удобный поиск гостиницы для животных —
+адреса на карте, отзывы с рейтингом и фотографиями.
 {% endblock %}
-
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<span class="content__title">Найдем лучший отель для Вашего питомца там, где Вам удобно!</span>
+<form name="search-city" method="GET" class="form__adress">
+    <input class="form__adress__input" type="text" id="input_address" placeholder="Введите адрес" autofocus>
+    <input class="form__adress__btn" type="button" onclick="getGeoCode()" value="Найти">
+</form>
 {% endblock %}
 
 {% block script %}
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
 <script type="text/javascript" src="{% static 'main_app/js/index.js' %}"></script>
-{% endblock %}
-
-{% block content %}
-<div class="content">
-    <h1>Найдем лучший отель для Вашего питомца там, где Вам удобно!</h1>
-    <form name="search-city" method="GET" class="set_address">
-        {% csrf_token %}
-        <p class="address"><input class="text_address" type="text" id="input_address" placeholder="Введите адрес" autofocus></p>
-        <p class="address"><input class="button_address" type="button" onclick="getGeoCode()" value="Найти"></p>
-    </form>
-</div>
 {% endblock %}

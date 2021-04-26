@@ -8,36 +8,42 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/base.css' %}">
         {% block extrahead %}{% endblock %}
-        {% block script %}{% endblock %}
     </head>
     <body>
         <div class="wrapper">
-            <header>
-                <div class="logo">
+            <header class="header">
+                <div class="header__logo">
                     <a href="/"><img src="{% static 'main_app/img/logo.jpg' %}" alt="Logo"></a>
                 </div>
-                <div class="top-menu">
-            </div>
+                <nav class="header__nav">
+                    <ul class="header__nav__list">
+                        <li class="header__nav__item">
+                            <a href="/" class="header__nav__link">Добавить свой отель</a>
+                        </li>
+                    </ul>
+                </nav>
             </header>
-            <div class="content">
+            <section class="content">
                 {% block content %}{% endblock %}
-            </div>
+            </section>
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4"></div>
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <ul class="footer-navigation-link-list">
-                            <li class="footer-navigation-link">
-                                <a href="#"></a>
+                <div class="footer__content">
+                    <div class="footer__content__tab"></div>
+                    <div class="footer__content__tab"></div>
+                    <div class="footer__content__tab"></div>
+                    <div class="footer__content__tab">
+                        <ul class="footer__nav">
+                            <li class="footer__nav__item">
+                                <a href="{% url 'help' %}" class="footer__nav__link">Связаться с нами</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
+
+        {% block script %}{% endblock %}
     </body>
 </html>
