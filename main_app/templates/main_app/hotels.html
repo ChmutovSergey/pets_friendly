@@ -23,9 +23,11 @@
                 <div class="padding-left">
                     <span class="content__hotels-list__content__address">{{ hotel.address }}</span>
                     {% for item in hotel.metro %}
-                        <div class="content__hotels-list__content__metro">
-                            <img src="{% static item.1 %}" alt="{{ item.0 }}" class="content__hotels-list__content__metro__icon">
-                            <span class="content__hotels-list__content__metro__name">{{ item.0 }}</span>
+                        <div class="flex">
+                            <div class="content__hotels-list__content__metro">
+                                <img src="{% static item.1 %}" alt="{{ item.0 }}" class="content__hotels-list__content__metro__icon">
+                                <span class="content__hotels-list__content__metro__name">{{ item.0 }}</span>
+                            </div>
                         </div>
                     {% endfor %}
                     <span class="content__hotels-list__content__work-time">Режим работы: {{ hotel.work_time }}</span>

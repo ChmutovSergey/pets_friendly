@@ -5,13 +5,8 @@
 .content {
   padding-top: 100px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .content__title {
@@ -41,13 +36,8 @@
 }
 
 .content__hotels-list__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .content__hotels-list__content__title {
@@ -58,19 +48,17 @@
 
 .content__hotels-list__content .padding-left {
   padding-left: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
+}
+
+.content__hotels-list__content .flex {
+  display: flex;
 }
 
 .content__hotels-list__content__address,
 .content__hotels-list__content__work-time,
-.content__hotels-list__content__phone,
-.content__hotels-list__content__metro {
+.content__hotels-list__content__phone {
   font-size: 12px;
   margin: 0 0 10px 0;
 }
@@ -80,13 +68,14 @@
 }
 
 .content__hotels-list__content__metro {
-  display: inline-block;
-  width: 150px;
+  margin: 0 10px 0 0;
+  display: flex;
+  align-items: center;
 }
 
 .content__hotels-list__content__metro__icon {
   width: 15px;
-  margin: 0 5px 0 0;
+  margin: 0 3px 0 0;
 }
 
 .content__hotels-list .line {

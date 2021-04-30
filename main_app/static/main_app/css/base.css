@@ -11,15 +11,9 @@ html, body {
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
 }
 
@@ -64,6 +58,8 @@ html, body {
   background-color: #0e1824;
   color: #8d8d91;
   font-size: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .footer a:link {
@@ -82,15 +78,9 @@ html, body {
   padding: 0 10%;
   padding-top: 10px;
   padding-bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .footer__content__tab {

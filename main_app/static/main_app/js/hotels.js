@@ -4,7 +4,6 @@ ymaps.ready(init);
 
 function init () {
     var hotels = JSON.parse(document.getElementById('hotels-data').textContent);
-    console.log(hotels)
     var center_map = JSON.parse(document.getElementById('center_map').textContent);
 
     myMap = new ymaps.Map('map', {
