@@ -1,76 +1,107 @@
-span {
-    font-size: 12px;
+.content {
+  padding-top: 50px;
 }
 
 .content {
-    text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.inline {
-    display: inline-block;
-    width: 680px;
+.content__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
 }
 
-.txt,
-.txt-area {
-    display: inline-block;
-    color: #676767;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    font-size: 15px!important;
-    line-height: 1.4em;
+.content__content {
+  width: 680px;
 }
 
-.txt {
-   width: 200px;
+.content__content__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.txt-area {
-   width: 653px;
-   min-height: 150px;
-   max-height: 400px;
-   resize: vertical;
+.content__content__form .margin-auto {
+  width: 100%;
+  text-align: center;
 }
 
-.txt:focus,
-.txt-area:focus {
-   border-style: solid;
-   border-color: #bababa;
-   color: #444;
+.content__content__form__name, .content__content__form__email, .content__content__form__msg {
+  color: #676767;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 15px;
+  line-height: 1.4em;
 }
 
-input.error,
-textarea.error {
-    border-color: #973D3D;
-    border-style: solid;
-    background: #F0BEBE;
-    color: #A35959;
+.content__content__form__name:focus, .content__content__form__email:focus, .content__content__form__msg:focus {
+  border-style: solid;
+  border-color: #bababa;
+  color: #444;
 }
 
-input.error:focus,
-textarea.error:focus {
-    border-color: #973D3D;
-    color: #A35959;
+.content__content__form__name.error, .content__content__form__email.error, .content__content__form__msg.error {
+  border-color: #973D3D;
+  border-style: solid;
+  background: #F0BEBE;
+  color: #A35959;
 }
 
-.send {
-    color: #fff;
-    cursor: pointer;
-    margin: 20px 0;
-    padding: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    border: solid 1px #f9f9f9;
-    border-radius: 5px;
-    background: #3F51B5;
-    width: 680px;
+.content__content__form__name.error:focus, .content__content__form__email.error:focus, .content__content__form__msg.error:focus {
+  border-color: #973D3D;
+  color: #A35959;
 }
 
-.send:hover {
-    background: #E27715;
+.content__content__form__name, .content__content__form__email {
+  width: 45%;
+}
+
+.content__content__form__msg {
+  width: 100%;
+  min-height: 150px;
+  max-height: 400px;
+}
+
+.content__content__form__agreement__text {
+  font-size: 12px;
+}
+
+.content__content__form__btn {
+  color: #fff;
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: solid 1px #f9f9f9;
+  border-radius: 5px;
+  background: #3F51B5;
+  width: 680px;
+}
+
+.content__content__form__btn:hover {
+  background: #E27715;
+  cursor: pointer;
+}
+
+.content__content__form__btn:active, .content__content__form__btn:focus {
+  outline: none;
+}
+
+.content__content__form__btn.blocked {
+  background: #DBDBDB;
+}
+
+.content__content__form__btn.blocked:hover {
+  cursor: default;
 }
 
 .footer {
-    position: absolute;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

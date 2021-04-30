@@ -1,34 +1,47 @@
 {% extends 'main_app/base.html' %}
 {% load static %}
-<!--TODO: реализовать динмический тайтл при выборе города-->
+
 {% block title %}Отели для питомцев в Москве{% endblock %}
 {% block description %}
 Более 100 отелей в Москве и Московской области. Гарантия лучшей цены! Без комиссий. Официальный сайт.
 {% endblock %}
-
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/hotels.css' %}">
-{% endblock %}
-
-{% block script %}
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
-<script type="text/javascript" src="{% static 'main_app/js/hotels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 {{ hotels|json_script:"hotels-data" }}
 {{ center_map|json_script:"center_map" }}
-<!--TODO: реализовать динмический тайтл при выборе города-->
-<h1>Гостиницы для животных в Москве</h1>
-<div class="map" id="map"></div>
-<div class="hotels-list">
+<span class="content__title">Гостиницы для животных в Москве</span>
+<div class="content__map" id="map"></div>
+<div class="content__hotels-list">
     {% for hotel in hotels %}
-        <div class="line"></div>
-        <h2>{{ hotel.title }}</h2>
-        <p class="address">{{ hotel.address }}</p>
-        <p class="work-time">Режим работы: {{ hotel.work_time }}</p>
-        <p class="phone">{{ hotel.phone }}</p>
-        <p class="description">{{ hotel.short_description }}</p>
+    <ul class="content__hotels-list__list" id="vue">
+        <li class="content__hotels-list__item">
+            <div class="content__hotels-list__content">
+                <span class="content__hotels-list__content__title">{{ hotel.title }}</span>
+                <div class="padding-left">
+                    <span class="content__hotels-list__content__address">{{ hotel.address }}</span>
+                    {% for item in hotel.metro %}
+                        <div class="flex">
+                            <div class="content__hotels-list__content__metro">
+                                <img src="{% static item.1 %}" alt="{{ item.0 }}" class="content__hotels-list__content__metro__icon">
+                                <span class="content__hotels-list__content__metro__name">{{ item.0 }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <span class="content__hotels-list__content__work-time">Режим работы: {{ hotel.work_time }}</span>
+                    <span class="content__hotels-list__content__work-time">{{ hotel.phone }}</span>
+                    <span class="content__hotels-list__content__desc">{{ hotel.short_description }}</span>
+                </div>
+            </div>
+        </li>
+    </ul>
     {% endfor %}
 </div>
+{% endblock %}
+
+{% block script %}
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandex_map_api_key }}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'main_app/js/hotels.js' %}"></script>
 {% endblock %}

@@ -13,7 +13,6 @@ function getGeoCode() {
         function (res) {
             var geo_code = res.geoObjects.get(0).geometry.getCoordinates();
             var params = `latitude=${geo_code[0]}&longitude=${geo_code[1]}`;
-
             document.location="/hotels?" + params;
         }
     );

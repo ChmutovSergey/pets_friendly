@@ -1,40 +1,46 @@
 .content {
-    padding-top: 100px;
-    text-align: center;
+  padding-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-p.address {
-    display: inline-block;
-    margin: 0;
+.content__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 24px 0;
 }
 
-input.text_address,
-input.button_address {
-    font-weight: 600;
-    font-size: 18px;
-    border-radius: 5px;
+.content .form__adress__input,
+.content .form__adress__btn {
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
-input.text_address {
-    padding: 8px;
-    width: 500px;
+.content .form__adress__input {
+  padding: 8px;
+  width: 500px;
 }
 
-input.button_address {
-    appearance:none;
-    -webkit-appearance:none;
-    padding: 10px;
-    border: none;
-    background: #3F51B5;
-    color: #FFF;
-    width: 120px;
+.content .form__adress__btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  border: none;
+  background: #3F51B5;
+  color: #FFF;
+  width: 120px;
 }
 
-input.button_address:hover {
-    background: #E27715;
-    cursor: pointer;
+.content .form__adress__btn:hover {
+  background: #E27715;
+  cursor: pointer;
 }
 
 .footer {
-    position: absolute;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
