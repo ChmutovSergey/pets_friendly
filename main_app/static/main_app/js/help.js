@@ -102,7 +102,8 @@ form.onsubmt = () => {
   }
   // строка с параметрами для отправки
   var body = `name=${data.name}&email=${data.email}&msg=${data.msg}`;
-  request.open("GET", 'url' + body);
+  request.open("POST", '/hotel', true);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.onreadystatechange = reqReadyStateChange;
-  request.send();
+  request.send(body);
 }
