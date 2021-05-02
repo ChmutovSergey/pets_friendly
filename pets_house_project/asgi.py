@@ -1,5 +1,5 @@
 """
-ASGI config for pets_house_project project.
+ASGI configs for pets_house_project project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
