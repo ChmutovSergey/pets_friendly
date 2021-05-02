@@ -1,5 +1,5 @@
 """
-WSGI config for pets_house_project project.
+WSGI configs for pets_house_project project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
