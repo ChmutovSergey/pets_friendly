@@ -1,0 +1,35 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block title %}Центр поддержки{% endblock %}
+{% block description %}
+В Центре поддержки пользователей Вы можете описать свою проблему, либо оставить отзыв о сервисе.
+И команда Pets Friendly обязательно Вам ответит!
+{% endblock %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_app/css/help.css' %}">
+{% endblock %}
+
+{% block content %}
+<span class="content__title">Центр поддержки</span>
+<div class="content__content">
+    <form action="#" method="get" name="contact" class="content__content__form" id="form">
+        <input type="text" name="name" class="content__content__form__name" placeholder="Имя" id="name" required>
+        <input type="email" name="email" class="content__content__form__email" placeholder="E-mail" id="email" required>
+        <textarea name="msg" class="content__content__form__msg" cols="30" rows="10" placeholder="Текст сообщения:" id="msg" required></textarea>
+        <div class="margin-auto">
+            <input type="checkbox" id="agreement" required>
+            <label for="agreement">
+                <span class="content__content__form__agreement__text">Подтверждаю согласие на отправку моих персональных данных.
+                    <a target="new" href="{% url 'privacy' %}">Политика конфиденциальности</a>
+                </span>
+            </label>
+        </div>
+        <button type="submit" class="content__content__form__btn blocked" id="send" disabled>Отправить</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'main_app/js/help.js' %}"></script>
+{% endblock %}
